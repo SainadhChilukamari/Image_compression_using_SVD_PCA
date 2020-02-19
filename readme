@@ -1,4 +1,4 @@
-#Algorithms project - Team 4 (sc249, sb337)
+#Algorithms project
 #Data should be placed in the data folder and all the generated outputs will also store in the data folder.
 #Conversion from ascii-binary-ascii and Image compression using SVD and Error calculations are coded in Java.
 #Java files used - SVD.java, Utils.java and DecomposeMatrix.java.
