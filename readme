@@ -1,0 +1,44 @@
+#Algorithms project - Team 4 (sc249, sb337)
+#Data should be placed in the data folder and all the generated outputs will also store in the data folder.
+#Conversion from ascii-binary-ascii and Image compression using SVD and Error calculations are coded in Java.
+#Java files used - SVD.java, Utils.java and DecomposeMatrix.java.
+#SVD is our main java class which separates the given tasks.
+#DecomposeMatrix class in DecomposeMatrix.java file decomposes the given matrix into U,S,VT and saves the header.txt and SVD.txt
+#Utils.java file has the few methods like saveCompressedFileToBin, readCompressedBin, convertFloatToHalfPrecision.
+#Note -- PGM file should not have comment line.
+
+Firstly step is to compile all the java files. This can be done by executing the command given below
+----- javac -cp .:jblas.jar *.java
+
+1st task: Convert ASCII image to binary image. This can be done by executing the command given below
+----- java -cp .:jblas.jar SVD 1 image.pgm
+program will use binary coding to save all necessary information in your asci pgm image. 
+Used 2 bytes to save the wide of the image and 2 bytes to save the height of the image; 
+used one byte for the grey scale levels; and use one byte for the grey level of each pixel.
+Output saved as image_b.pgm 
+
+2nd task: convert binary to ASCII image.This can be done by executing the command given below.
+----- java -cp .:jblas.jar SVD 2 image_b.pgm
+Output saved as image_copy.pgm.
+
+3rd task: To decompose the matrix and getting image_header.txt and image_svd.txt. This can be done by executing the command given below
+----- java -cp .:jblas.jar DecomposeMatrix image.pgm
+Output saved as image_header.txt and image_SVD.txt
+
+4th task: This task compress the image and then converts into binary file. This can be done by executing the command given below.
+----- java -cp .:jblas.jar SVD 3 image_header.txt image_SVD.txt rank
+The header.txt contains 3 integers (width, height, grey scale levels). SVD.txt contains 3 matrices.
+Output saved as image_b.pgm.SVD. 
+
+5th task: To recover the image. This can be done by executing the command given below.
+----- java -cp .:jblas.jar SVD 4 image_b.pgm.SVD
+Output saved as image_rank.pgm
+
+6th task: Error Calculations. This can be done by executing the command given below.
+java -cp .:jblas.jar SVD 5 baboon.pgm baboon_80.pgm baboon_b.pgm.SVD
+Outputs are THE RATE OF COMPRESSION AND MEAN SQUARE ERROR.
+
+#PCA was done by using jupyter notebook in python.
+# before running the jupyter notebook. -- REQUIREMENTS (python version 3+, and install packages by pip install pandas, jupyter, scikit-learn, matplotlib, numpy)
+# To run the jupyter notebook visuals.py and data.csv should be in the same folder.
+# In command line run code jupyter notebook customer_segments.ipynb and Run each cell from the beginning (shift+enter).
